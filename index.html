@@ -194,3 +194,69 @@ body {
 
 
 <!doctype html></!doctype>
+<!doctype html>
+
+
+
+    
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <style>
+        body.light {
+            background-color: PURPLE;
+            color: black;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark {
+            background-color: black;
+            color: white;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        #modeToggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        #modeToggle:hover {
+            opacity: 0.7;
+        }
+    </style>
+
+
+
+
+    <button id="modeToggle" onclick="toggleMode()">
+        <i id="icon" class="fas fa-moon"></i>
+    </button>
+
+    <script>
+        function changeMode(mode) {
+            const body = document.body;
+            body.className = mode;
+            updateIcon(mode === 'dark' ? 'sun' : 'moon');
+        }
+
+        function toggleMode() {
+            const currentMode = document.body.className === "dark" ? 'light' : 'dark';
+            changeMode(currentMode);
+        }
+
+        function updateIcon(icon) {
+            const modeToggle = document.getElementById('icon');
+            modeToggle.className = icon === 'sun' ? 'fas fa-sun' : 'fas fa-moon';
+        }
+
+        // Initial mode (you can set it to 'dark' or 'light' based on user preferences)
+        // For now, let's assume light mode as the default.
+        changeMode('light');
+    </script>
+
+
+</!doctype>
