@@ -170,3 +170,27 @@ body {
     font-size: 13px;
     letter-spacing: 1px;
 }</style>
+<style>
+        body {
+            user-select: none;
+        }
+
+        img {
+            pointer-events: none;
+            user-drag: none;
+            -moz-user-select: none;
+            -webkit-user-drag: none;
+        }
+    </style>
+
+
+    <img src="image.jpg" alt="" />
+    
+    <script>
+        window.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+        });
+    </script>
+
+
+<!doctype html></!doctype>
