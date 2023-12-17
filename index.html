@@ -1,261 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>RAYXSTUDIOZ LOGIN</title>
+    <title>Glowing input login form</title>
+    <link rel="stylesheet" href="glow.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
-
 <body>
-    <div class="login-div">
-        <div class="title">RAYXSTUDIOZ</div>
-        <div class="sub-title">ADMIN LOGIN </div>
-        <div class="fields">
-            <div class="username">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                    <path
-                        d="M12.075,10.812c1.358-0.853,2.242-2.507,2.242-4.037c0-2.181-1.795-4.618-4.198-4.618S5.921,4.594,5.921,6.775c0,1.53,0.884,3.185,2.242,4.037c-3.222,0.865-5.6,3.807-5.6,7.298c0,0.23,0.189,0.42,0.42,0.42h14.273c0.23,0,0.42-0.189,0.42-0.42C17.676,14.619,15.297,11.677,12.075,10.812 M6.761,6.775c0-2.162,1.773-3.778,3.358-3.778s3.359,1.616,3.359,3.778c0,2.162-1.774,3.778-3.359,3.778S6.761,8.937,6.761,6.775 M3.415,17.69c0.218-3.51,3.142-6.297,6.704-6.297c3.562,0,6.486,2.787,6.705,6.297H3.415z">
-                    </path>
-                </svg>
-                <input type="text" class="user-input" id="username" placeholder="Username">
-            </div>
-            <div class="password">
-                <svg class="svg-icon" viewBox="0 0 20 20">
-                    <path d="M17.308,7.564h-1.993c0-2.929-2.385-5.314-5.314-5.314S4.686,4.635,4.686,7.564H2.693c-0.244,0-0.443,0.2-0.443,0.443v9.3c0,0.243,0.199,0.442,0.443,0.442h14.615c0.243,0,0.442-0.199,0.442-0.442v-9.3C17.75,7.764,17.551,7.564,17.308,7.564 M10,3.136c2.442,0,4.43,1.986,4.43,4.428H5.571C5.571,5.122,7.558,3.136,10,3.136 M16.865,16.864H3.136V8.45h13.729V16.864z M10,10.664c-0.854,0-1.55,0.696-1.55,1.551c0,0.699,0.467,1.292,1.107,1.485v0.95c0,0.243,0.2,0.442,0.443,0.442s0.443-0.199,0.443-0.442V13.7c0.64-0.193,1.106-0.786,1.106-1.485C11.55,11.36,10.854,10.664,10,10.664 M10,12.878c-0.366,0-0.664-0.298-0.664-0.663c0-0.366,0.298-0.665,0.664-0.665c0.365,0,0.664,0.299,0.664,0.665C10.664,12.58,10.365,12.878,10,12.878"></path>
-                </svg>
-                <input type="password" class="pass-input" id="password" placeholder="Password">
-            </div>
-        </div>
-        <button class="signin-btn" onclick="validateForm()">Login</button>
-        <div class="link">
-            <a href="#" onclick="forgotPassword()">Forgot Password?</a> or <a href="#" onclick="signUp()">Sign Up</a>
-        </div>
+    <div class="login-form">
+       <div class="text">
+         DEVELOPERS LOGIN
+       </div>
+       <form>
+          <div class="field">
+             <div class="fas fa-envelope"></div>
+             <input type="text" id="email" placeholder="Email or Phone">
+          </div>
+          <div class="field">
+             <div class="fas fa-lock"></div>
+             <input type="password" placeholder="Password">
+          </div>
+          <button id="loginBtn">LOGIN</button>
+          <div class="link">
+             <p id="message"></p>
+             NOT A DEVELOPER?
+             <a href="#"><u>JOIN US NOW</u></a>
+          </div>
+       </form>
     </div>
-    <script src="fun.js"></script>
+
     <script>
-        function validateForm() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            // Replace 'your_registered_email' with the actual registered email
+            const registeredEmail = 'your_registered_email';
+            const userEmail = document.getElementById('email').value;
+            const messageElement = document.getElementById('message');
 
-            if (username.length < 5 || password.length < 5) {
-                alert("Username and password must be at least 5 characters long.");
-                return;
+            if (userEmail === registeredEmail) {
+                messageElement.textContent = 'Welcome, Developer!';
+                messageElement.style.color = '#339933';
+            } else {
+                messageElement.textContent = 'You are not a registered developer. Join us now!';
+                messageElement.style.color = 'red';
             }
-
-            alert("FAILED: USERNAME OR PASSWORD IS INCORRECT");
-        }
-
-        function signUp() {
-            alert("Registration for admin will open on 3rd Jan 2024.");
-        }
-
-        function forgotPassword() {
-            var userEmail = prompt("Enter your email:");
-            if (userEmail) {
-                alert("Email is not registered.");
-            }
-        }
-    </script>
-</body>
-
-</html>
-<style>@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Lato&family=Montserrat:wght@300&family=Poppins:ital,wght@0,400;0,500;1,500&family=Source+Sans+Pro:wght@300&family=Ubuntu:wght@500;700&display=swap');
-
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: 'Lato', sans-serif;
-}
-
-body {
-    margin: 0;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #555;
-    background-color: #ecf0f3;
-}
-
-.login-div {
-    width: 330px;
-    height: 600px;
-    padding: 60px 35px 35px 35px;
-    border-radius: 40px;
-    background-color: #ecf0f3;
-    box-shadow: 13px 13px 20px #cbced1, -13px -13px 20px #fff;
-}
-
-.title {
-    text-align: center;
-    font-size: 25px;
-    letter-spacing: .5px;
-}
-
-.sub-title {
-    text-align: center;
-    font-size: 12px;
-    padding-top: 7px;
-    letter-spacing: 3px;
-}
-
-.fields {
-    width: 100%;
-    padding: 75px 5px 5px 5px;
-}
-
-.fields input {
-    border: none;
-    outline: none;
-    background: none;
-    font-size: 14px;
-    color: #555;
-    padding: 20px 10px 20px 5px;
-}
-
-.username,
-.password {
-    margin-bottom: 30px;
-    border-radius: 25px;
-    box-shadow: inset 8px 8px 8px #cbced1,
-        inset -8px -8px 8px #fff;
-}
-
-.fields svg {
-    height: 22px;
-    margin: 0 10px -3px 25px;
-}
-
-.signin-btn {
-    outline: none;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    height: 50px;
-    border-radius: 30px;
-    font-size: 17px;
-    font-weight: 700;
-    color: #fff;
-    text-align: center;
-    background-color: #02c8bd;
-    box-shadow: 3px 3px 8px #b1b1b1,
-        -3px -3px 8px #fff;
-    transition: all 0.2s ease-in-out;
-}
-
-.signin-btn:hover{
-    background-color: #50e5b9;
-}
-
-.signin-btn{
-    -webkit-tap-highlight-color: transparent; 
-}
-.signin-btn:active {
-    transform: scale(.95);
-}
-.link{
-    padding-top: 25px;
-    text-align: center;
-}
-.link a{
-    text-decoration: none;
-    color: #aaa;
-    font-size: 13px;
-    letter-spacing: 1px;
-}</style>
-<style>
-        body {
-            user-select: none;
-        }
-
-        img {
-            pointer-events: none;
-            user-drag: none;
-            -moz-user-select: none;
-            -webkit-user-drag: none;
-        }
-    </style>
-
-
-    <img src="image.jpg" alt="" />
-    
-    <script>
-        window.addEventListener('contextmenu', function (e) {
-            e.preventDefault();
         });
     </script>
-
-
-<!doctype html></!doctype>
-<!doctype html>
-
-
-
-    
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <style>
-        body.light {
-            background-color:WHITE;
-            color: black;
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        body.dark {
-            background-color: WHITE;
-            color: white;
-            transition: background-color 0.5s, color 0.5s;
-        }
-
-        #modeToggle {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-
-        #modeToggle:hover {
-            opacity: 0.7;
-        }
-    </style>
-
-
-
-
-    <button id="modeToggle" onclick="toggleMode()">
-        <i id="icon" class="fas fa-moon"></i>
-    </button>
-
-    <script>
-        function changeMode(mode) {
-            const body = document.body;
-            body.className = mode;
-            updateIcon(mode === 'dark' ? 'sun' : 'moon');
-        }
-
-        function toggleMode() {
-            const currentMode = document.body.className === "dark" ? 'light' : 'dark';
-            changeMode(currentMode);
-        }
-
-        function updateIcon(icon) {
-            const modeToggle = document.getElementById('icon');
-            modeToggle.className = icon === 'sun' ? 'fas fa-sun' : 'fas fa-moon';
-        }
-
-        
-        changeMode('light');
-    </script>
-
-
-<script>function changemode(mode)</script>{
+ </body>
+</html>
+<STYLE>@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins',sans-serif;
+}
+body{
+  display: flex;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  background: #151515;
+}
+.login-form{
+  position: relative;
+  width: 370px;
+  height: auto;
+  background: #1b1b1b;
+  padding: 40px 35px 60px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: inset 0 0 1px #272727;
+}
+.text{
+  font-size: 30px;
+  color: #c7c7c7;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+form{
+  margin-top: 40px;
+}
+form .field{
+  margin-top: 20px;
+  display: flex;
+}
+.field .fas{
+  height: 50px;
+  width: 60px;
+  color: #868686;
+  font-size: 20px;
+  line-height: 50px;
+  border: 1px solid #444;
+  border-right: none;
+  border-radius: 5px 0 0 5px;
+  background: linear-gradient(#333,#222);
+}
+.field input,form button{
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 19px;
+  color: #868686;
+  padding: 0 15px;
+  border-radius: 0 5px 5px 0;
+  border: 1px solid #444;
+  caret-color: #339933;
+  background: linear-gradient(#333,#222);
+}
+input:focus{
+  color: #339933;
+  box-shadow: 0 0 5px rgba(0,255,0,.2),
+              inset 0 0 5px rgba(0,255,0,.1);
+  background: linear-gradient(#333933,#222922);
+  animation: glow .8s ease-out infinite alternate;
+}
+@keyframes glow {
+   0%{
+    border-color: #339933;
+    box-shadow: 0 0 5px rgba(0,255,0,.2),
+                inset 0 0 5px rgba(0,0,0,.1);
+  }
+   100%{
+    border-color: #6f6;
+    box-shadow: 0 0 20px rgba(0,255,0,.6),
+                inset 0 0 10px rgba(0,255,0,.4);
+  }
+}
+button{
+  margin-top: 30px;
+  border-radius: 5px!important;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+button:hover{
+  color: #339933;
+  border: 1px solid #339933;
+  box-shadow: 0 0 5px rgba(0,255,0,.3),
+              0 0 10px rgba(0,255,0,.2),
+              0 0 15px rgba(0,255,0,.1),
+              0 2px 0 black;
+}
+.link{
+  margin-top: 25px;
+  color: #868686;
+}
+.link a{
+  color: #339933;
+  text-decoration: none;
+}
+.link a:hover{
+  text-decoration: underline;
+}</STYLE>
