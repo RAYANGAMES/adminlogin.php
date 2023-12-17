@@ -1,19 +1,21 @@
-<!DOCTYPE html>
+
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Glowing input login form</title>
+    <title>RAYXSTUDIOZ-DEVS LOGIN</title>
     <link rel="stylesheet" href="glow.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
 </head>
 <body>
     <div class="login-form">
        <div class="text">
          DEVELOPERS LOGIN
        </div>
-       <form>
+       <form id="loginForm">
           <div class="field">
              <div class="fas fa-envelope"></div>
              <input type="text" id="email" placeholder="Email or Phone">
@@ -26,14 +28,15 @@
           <div class="link">
              <p id="message"></p>
              NOT A DEVELOPER?
-             <a href="#"><u>JOIN US NOW</u></a>
+             <a href="#" id="joinUsBtn"><u>JOIN US NOW</u></a>
           </div>
        </form>
     </div>
 
     <script>
-        document.getElementById('loginBtn').addEventListener('click', function() {
-            // Replace 'your_registered_email' with the actual registered email
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission behavior
+
             const registeredEmail = 'your_registered_email';
             const userEmail = document.getElementById('email').value;
             const messageElement = document.getElementById('message');
@@ -46,9 +49,17 @@
                 messageElement.style.color = 'red';
             }
         });
+
+        document.getElementById('joinUsBtn').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Show neon gradient alert for admin registration opening soon
+            alert('Admin registration opening soon!');
+        });
     </script>
  </body>
 </html>
+    
 <STYLE>@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 *{
   margin: 0;
